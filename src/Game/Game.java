@@ -12,7 +12,7 @@ public class Game {
     private GraphicsContext gc;
     private Status status;
     private Group root;
-    private Image backgroundImg, yourTurn, rockImg, paperImg, scissorImg, circle, yourPoints, opponentPoints;
+    private Image backgroundImg, yourTurn, rockImg, paperImg, scissorImg;
     private static double w = 1500, h = 900;
     private MenuItem rock, paper, scissor;
     private int choice, points, clientPoints;
@@ -39,13 +39,10 @@ public class Game {
 
     private void images() {
         backgroundImg = new Image("/Img/Background.png");
-        yourTurn = new Image("/Resources/yourTurnImg.png");
+        yourTurn = new Image("/Img/suaJogada.png");
         rockImg = new Image("/Img/pedra.png");
         paperImg = new Image("/Img/papel.png");
         scissorImg = new Image("/Img/tesoura.png");
-        circle = new Image("/Resources/circle.png");
-        yourPoints = new Image("/Resources/yourPoints.png");
-        opponentPoints = new Image("/Resources/opponentPoints.png");
     }
 
     public void drawing(KeyEvent key, Group root, TCPServer server, RoundResult roundResult){
@@ -58,39 +55,12 @@ public class Game {
             scissor.addToView(root);
             setButtonsOn(true);
         }
-        gc.drawImage(yourPoints, 0, 700, 250, 100);
-        gc.drawImage(opponentPoints, 1250, 700, 250, 100);
 
         // [Adiciona pontos do servidor]
         this.setPoints(roundResult.getPoints());
-        if(points != 0){
-            if(points == 1){
-                gc.drawImage(circle, 50,770,50,50);
-            } else if(points == 2){
-                gc.drawImage(circle, 50,770,50,50);
-                gc.drawImage(circle, 110,770,50,50);
-            } else if(points == 3){
-                gc.drawImage(circle, 50,770,50,50);
-                gc.drawImage(circle, 110,770,50,50);
-                gc.drawImage(circle, 170,770,50,50);
-            }
-
-        }
 
         // [Adiciona pontosdo cliente]
         this.setClientPoints(roundResult.getClientPoints());
-        if(clientPoints != 0){
-            if(clientPoints == 1){
-                gc.drawImage(circle, 1300,770,50,50);
-            } else if(clientPoints == 2){
-                gc.drawImage(circle, 1300,770,50,50);
-                gc.drawImage(circle, 1360,770,50,50);
-            } else if(clientPoints == 3){
-                gc.drawImage(circle, 1300,770,50,50);
-                gc.drawImage(circle, 1360,770,50,50);
-                gc.drawImage(circle, 1420,770,50,50);
-            }
-        }
 
 
         rock.setOnMouseClicked(new EventHandler<MouseEvent>() {

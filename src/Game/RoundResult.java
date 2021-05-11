@@ -13,7 +13,7 @@ public class RoundResult {
     private GraphicsContext gc;
     private Status status;
     private Group root;
-    private Image backgroundImg, title, rockImg, paperImg, scissorImg, winnerRightArrow, winnerLeftArrow, deadlock, result, youLose, youWin, deadlockMessage, nextButtonImg;
+    private Image backgroundImg, title, rockImg, paperImg, scissorImg, result, youLose, youWin, deadlockMessage, nextButtonImg;
     private static double w = 1500, h = 900;
     private MenuItem nextButton;
     private int choice, points, clientPoints;
@@ -25,7 +25,7 @@ public class RoundResult {
         this.status = status;
         this.root = root;
         images();
-        this.nextButton = new MenuItem(nextButtonImg, 490,650,gc,root);
+        this.nextButton = new MenuItem(nextButtonImg, 500,650,gc,root);
         nextButton.removeFromView(root);
         this.buttonsOn = false;
         this.points = 0;
@@ -35,17 +35,14 @@ public class RoundResult {
 
     // [Carrega imagens]
     private void images() {
-        backgroundImg = new Image("/Resources/rays.jpg");
-        rockImg = new Image("/Resources/rock.png");
-        paperImg = new Image("/Resources/paper.png");
-        scissorImg = new Image("/Resources/scissor.png");
-        winnerRightArrow = new Image("/Resources/winnerRightArrow.png");
-        winnerLeftArrow = new Image("/Resources/winnerLeftArrow.png");
-        deadlock = new Image("/Resources/deadlock.png");
-        youLose = new Image("/Resources/youLose.png");
-        youWin = new Image("/Resources/youWin.png");
-        deadlockMessage = new Image("/Resources/deadlockMessage.png");
-        nextButtonImg = new Image("/Resources/nextRound.png");
+        backgroundImg = new Image("/Img/Background.png");
+        rockImg = new Image("/Img/pedra.png");
+        paperImg = new Image("/Img/papel.png");
+        scissorImg = new Image("/Img/tesoura.png");
+        youLose = new Image("/Img/Perdeu.png");
+        youWin = new Image("/Img/Venceu.png");
+        deadlockMessage = new Image("/Img/Empate.png");
+        nextButtonImg = new Image("/Img/proximo.png");
     }
 
     // [Desenha tela RoundResult]
@@ -53,25 +50,18 @@ public class RoundResult {
         // [Calcula resultado por partida]
         if (server.getJogada() == server.getJogadaCliente()) {
             title = deadlockMessage;
-            result = deadlock;
         } else if (server.getJogada() == 1 && server.getJogadaCliente() == 2) {
             title = youLose;
-            result = winnerLeftArrow;
         } else if (server.getJogada() == 1 && server.getJogadaCliente() == 3) {
             title = youWin;
-            result = winnerRightArrow;
         } else if (server.getJogada() == 2 && server.getJogadaCliente() == 1) {
             title = youWin;
-            result = winnerRightArrow;
         } else if (server.getJogada() == 2 && server.getJogadaCliente() == 3) {
             title = youLose;
-            result = winnerLeftArrow;
         } else if (server.getJogada() == 3 && server.getJogadaCliente() == 1) {
             title = youLose;
-            result = winnerLeftArrow;
         } else if (server.getJogada() == 3 && server.getJogadaCliente() == 2) {
             title = youWin;
-            result = winnerRightArrow;
         }
 
         if(title == youWin && contaPonto){
