@@ -30,11 +30,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        System.out.println("\033[0;0;32m\033[38;2;32;34;200m"); // set caracteres do terminal para cor azul
         root = new Group();
         scene = new Scene(root, Color.BLACK);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Jokenpo!");
+        primaryStage.setTitle("Pedra papel tesoura");
         primaryStage.setMaxWidth(w);
         primaryStage.setMaxHeight(h);
         Canvas canvas = new Canvas(w, h);

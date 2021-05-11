@@ -41,7 +41,6 @@ public class Menu implements Drawable{
     private void buttons() {
         playButton = new Image("/Img/jogar.png");
         perg = new Image("/Img/sair.png");
-
     }
 
     // [Desenha tela Menu]

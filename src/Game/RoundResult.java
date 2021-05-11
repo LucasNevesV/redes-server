@@ -13,7 +13,7 @@ public class RoundResult {
     private GraphicsContext gc;
     private Status status;
     private Group root;
-    private Image backgroundImg, title, rockImg, paperImg, scissorImg, result, youLose, youWin, deadlockMessage, nextButtonImg;
+    private Image backgroundImg, title, rockImg, paperImg, scissorImg, result,  youLose, youWin, deadlockMessage, nextButtonImg;
     private static double w = 1500, h = 900;
     private MenuItem nextButton;
     private int choice, points, clientPoints;
