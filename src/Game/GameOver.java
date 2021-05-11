@@ -12,7 +12,7 @@ import java.io.IOException;
 public class GameOver {
     private GraphicsContext gc;
     private static double w = 1500, h = 900;
-    private Image backgroundImg, loser, winner, gatoSorte, confete, angryCat, menuButtonImg;
+    private Image backgroundImg, loser, winner, menuButtonImg;
     private MenuItem menuButton;
     private boolean ganhou, buttonsOn;
 
@@ -27,13 +27,10 @@ public class GameOver {
 
     // [Carrega as imagens]
     private void images(){
-        backgroundImg = new Image("/Resources/rays.jpg");
-        loser = new Image("/Resources/youLose.png");
-        winner = new Image("/Resources/youWin.png");
-        gatoSorte = new Image("/Resources/gatoDaFortuna.gif");
-        confete = new Image("/Resources/confete.gif");
-        angryCat = new Image("/Resources/angryCat.gif");
-        menuButtonImg = new Image("/Resources/sair.png");
+        backgroundImg = new Image("/Img/Background.png");
+        loser = new Image("/Img/Perdeu.png");
+        winner = new Image("/Img/Venceu.png");
+        menuButtonImg = new Image("/Img/sair.png");
     }
 
     // [Desenha tela GameOver]
@@ -46,15 +43,9 @@ public class GameOver {
         if(ganhou){
             // [Exibe titulo]
             gc.drawImage(winner, 330, 20, 800, 200);
-            // [Exibe gato da sorte]
-            gc.drawImage(gatoSorte, 0,100,500,800);
-            // [Exibe confete]
-            gc.drawImage(confete, 0,0,w,h);
         } else {
             // [Exibe titulo]
             gc.drawImage(loser, 330, 20, 800, 200);
-            // [Exibe gato da sorte]
-            gc.drawImage(angryCat, 550,200,350,350);
         }
 
         // [Adiciona botao para ir ao menu]
